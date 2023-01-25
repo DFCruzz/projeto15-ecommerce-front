@@ -5,16 +5,19 @@ const Header = () => {
         <StyledHeader>
             <header>
                 <div className="upper-bar">
+                    <div className="dropdown-menu">
+                        <ion-icon name="menu"></ion-icon>
+                    </div>
                     <a href="#">Logo</a>
                     <div className="search-bar">
                         <ion-icon name="search-outline"></ion-icon>
-                        <input placeholder="Busque aqui..."/>
+                        <input placeholder="Busque aqui..." />
 
                     </div>
                     <nav>
-                        <p><ion-icon name="person"></ion-icon>Log In</p>
-                        <p><ion-icon name="heart-outline"></ion-icon></p>
-                        <p><ion-icon name="cart"></ion-icon></p>
+                        <div><ion-icon name="person"></ion-icon><p>Log In</p></div>
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="cart"></ion-icon>
                     </nav>
                 </div>
                 <div className="lower-bar">
@@ -40,10 +43,14 @@ const StyledHeader = styled.div`
     header {
         max-width: 1280px;
         width: 100%;
-        height: 120px;
+        height: 100%;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+
+        .dropdown-menu {
+            display: none;
+        }
 
         .upper-bar {
             width: 100%;
@@ -51,27 +58,27 @@ const StyledHeader = styled.div`
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 18px;
 
             nav {
                 width: 20%;
                 display: flex;
+                justify-content: space-around;                
 
-                p {
-                    width: 100%;
+                div {
+                    font-size: 18px;
                     display: flex;
-                    align-items: center;
                     justify-content: center;
+                    align-items: center;
+                }                
 
-                    ion-icon {
-                        font-size: 28px;
-                        padding: 0 4px;
-                        cursor: pointer;
-                    }
+                ion-icon {
+                    font-size: 28px;
+                    padding: 0 4px;
+                    cursor: pointer;
                 }
             }
 
-            div {
+            a {
                 width: 15%;
                 text-align: center;
             }
@@ -122,4 +129,58 @@ const StyledHeader = styled.div`
             }
         }
     }
+
+    @media (max-width: 390px) {
+        width: 100%;
+        height: 80px;
+
+        header {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            
+            
+            .upper-bar {
+                height: 100%;
+                justify-content: space-around;
+
+                .search-bar {
+                    display: none;
+                }
+
+                .dropdown-menu {
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    ion-icon {
+                        font-size: 28px;
+                    }
+                }
+
+                a {
+                    width: 100%;
+                }
+
+                nav {
+                    width: 100%;
+                    font-size: 28px;
+
+                    p {
+                        display: none;
+                    }
+                }
+            }
+
+            .lower-bar {
+                display: none;
+            }
+
+        }
+    }
+
+
 `
