@@ -1,9 +1,11 @@
-
+import Footer from "./Footer";
 
 function App() {
   return (
     <>
-      Hello World!
+      <Footer>
+
+      </Footer>
     </>
   );
 }
