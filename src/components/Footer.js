@@ -142,4 +142,33 @@ const StyledFooter = styled.div`
             }
         }
     }
+
+    @media (max-width: 390px) {
+        height: 60vh;
+
+        footer {
+            
+            .upper-footer {
+                flex-direction: column;
+
+                .left-side {
+                    width: 100%;
+                    margin-bottom: 30px;
+
+                    .contact {
+                        margin-top: 24px;
+                    }
+                }
+
+                .right-side {
+                    width: 100%;
+                    justify-content: space-around;
+                }
+            }
+
+            .bottom-footer {
+                display: none;
+            }
+        }
+    }
 `
