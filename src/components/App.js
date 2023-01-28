@@ -5,16 +5,19 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SignIn from "../pages/SignInPage/SignIn";
 import SignUp from "../pages/SignUpPage/SignUp";
+import ProductsPage from "../pages/ProductsPage/ProductsPage";
+
 
 function App() {
   const [user, setUser] = useState({});
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<SignIn />}/>
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/home" element={<ProductsPage />} />
+      </Routes>
       </BrowserRouter>
     </UserContext.Provider>
   );
