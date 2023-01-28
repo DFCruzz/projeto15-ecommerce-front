@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContext from "../contexts/AuthContext";
-import Header from "./Header";
-import Footer from "./Footer";
 import SignIn from "../pages/SignInPage/SignIn";
+import ProductsPage from "../pages/ProductsPage/ProductsPage";
 
 
 function App() {
@@ -13,6 +12,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignIn />}/>
+        <Route path="/home" element={<ProductsPage />} />
       </Routes>
       </BrowserRouter>
     
