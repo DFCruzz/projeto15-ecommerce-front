@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 export const PageContainer = styled.div`
   display: flex;  
- flex-direction: column; 
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   background: #94a3b8;
   min-height: 100vh;
+  min-width:375px;
  
 `;
 

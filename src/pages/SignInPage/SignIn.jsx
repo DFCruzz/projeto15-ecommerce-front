@@ -1,13 +1,15 @@
 import { PageContainer, StyledForm, StyledLink } from "./styled";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../contexts/AuthContext"
 import { ThreeDots } from "react-loader-spinner";
-import apiAuth from "../../services/apiAuth"
+import apiAuth from "../../services/apiAuth";
+import { UserContext } from "../../contexts/UserContext";
+import axios from "axios"
 
 export default function SignIn() {
   const [form, setForm] = useState({ email: "", password: "" });
-  const { setToken } = useContext(AuthContext);
+
+  const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -15,27 +17,32 @@ export default function SignIn() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleLogin(e) {
+  async function handleSignIn(e) {
     e.preventDefault();
     setIsLoading(true);
+    
 
     try {
       const data = await apiAuth.singIn(form);
+      // const data = axios.post(`${process.env.REACT_APP_API_URL}/sign-in`, form)
 
-      setToken(data.token);
+      const { _id, name, token } = data;
+
+      setUser({ _id, name, token });
 
       setIsLoading(false);
 
       navigate("/home");
     } catch (error) {
       setIsLoading(false);
-      alert(error.response.data);
+      console.log(error)
+      // alert(error.response);
     }
   }
 
   return (
     <PageContainer>
-      <StyledForm onSubmit={handleLogin}>
+      <StyledForm onSubmit={handleSignIn}>
         <div className="email">E-mail</div>
         <input
           name="email"
