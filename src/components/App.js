@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import Header from "./Header";
-import Footer from "./Footer";
 import SignIn from "../pages/SignInPage/SignIn";
 import SignUp from "../pages/SignUpPage/SignUp";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";

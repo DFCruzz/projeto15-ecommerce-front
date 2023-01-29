@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import apiAuth from "../../services/apiAuth";
-import axios from "axios"
+
 
 export default function SignUp() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -20,8 +20,8 @@ export default function SignUp() {
     
 
     try {
-      // await apiAuth.singUp(form);
-      await axios.post(`${process.env.REACT_APP_API_URL}/sign-up`, form)
+      await apiAuth.signUp(form);
+      
       alert("Cadastro realizado com sucesso");
 
       setIsLoading(false);
@@ -30,7 +30,7 @@ export default function SignUp() {
     } catch (error) {
       setIsLoading(false);
       console.log(error)
-      // alert(error.response.data);
+      alert(error.response);
     }
   }
 

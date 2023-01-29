@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import apiAuth from "../../services/apiAuth";
 import { UserContext } from "../../contexts/UserContext";
-import axios from "axios"
+
 
 export default function SignIn() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -20,23 +20,19 @@ export default function SignIn() {
   async function handleSignIn(e) {
     e.preventDefault();
     setIsLoading(true);
-    
 
     try {
-      const data = await apiAuth.singIn(form);
-      // const data = axios.post(`${process.env.REACT_APP_API_URL}/sign-in`, form)
+      const {data:{token, id, name}} = await apiAuth.singIn(form);
 
-      const { _id, name, token } = data;
-
-      setUser({ _id, name, token });
+      setUser({ id, name, token });
 
       setIsLoading(false);
 
       navigate("/home");
     } catch (error) {
       setIsLoading(false);
-      console.log(error)
-      // alert(error.response);
+
+      alert(error.response);
     }
   }
 
