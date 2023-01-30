@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 export default function ProductsPage() {
     const [productsList, setProductsList] = useState([])
     const [sliderList, setSliderList] = useState([])
+    const [isHidden, setIsHidden] = useState(true)
 
     async function loadList() {
         const res = await apiProducts.getProductsList()
@@ -23,8 +24,7 @@ export default function ProductsPage() {
         const res = await apiProducts.getSliderList()
         console.log(res)
         setSliderList(res.data)
-    }
-    
+    }  
 
     useEffect(() => {
         loadList()
@@ -67,7 +67,7 @@ export default function ProductsPage() {
                                 <div className="description">
                                     <img src={a.thumbURL} alt={a.name} />
                                     <div>
-                                        <p>{a.name} - {a.description}</p>
+                                        <p><span>{a.name}</span> - {a.description}</p>
                                         <h2>R$ {a.price}</h2>
                                     </div>
                                 </div>
@@ -79,19 +79,6 @@ export default function ProductsPage() {
                     ))}
                 </div>
             </div>
-            <HiddenMenu>
-                <div>
-                    <h1>Logo</h1>
-                    <h2>Seções</h2>
-                    <nav>
-                        <p>CPUs</p>
-                        <p>Placas de Vídeo</p>
-                        <p>Cases</p>
-                        <p>Placa Mãe</p>
-                        <p>Periféricos</p>
-                    </nav>
-                </div>
-            </HiddenMenu>
             <Footer />
         </Wrapper>
     )

@@ -40,7 +40,7 @@ export default Footer
 const StyledFooter = styled.div`
     width: 100%;
     max-height: 200px;
-    background-color: #F8FAFC;
+    background-color: #89C2D9;
     bottom: 0;
     left: 0;
     
@@ -61,6 +61,7 @@ const StyledFooter = styled.div`
                 font-size: 18px;
                 font-weight: 700;
                 margin: 8px 0;
+                color: #E85D04;
             }
 
             p {
@@ -79,7 +80,7 @@ const StyledFooter = styled.div`
                     font-size: 32px;
                     display: flex;
                     justify-content: space-around;
-                    color: #575d6b;
+                    color: #e85d04;
                     margin-bottom: 8px;
                 }
             }

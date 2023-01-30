@@ -90,6 +90,8 @@ const ProductWrapper = styled.div`
             margin-bottom: 8px;
             font-size: 28px;
             margin-left: 18px;
+            color: #013A63;
+            font-weight: 700;
          }
 
          .rater {
@@ -101,6 +103,9 @@ const ProductWrapper = styled.div`
             font-size: 32px;
             font-weight: 700;
             margin-left: 18px;
+            font-family: 'Itim', cursive;
+            color: #DC2F02;
+            letter-spacing: 0.1em;
          }
 
          .add-btn {
@@ -109,9 +114,13 @@ const ProductWrapper = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #b2b2b2;
+            background-color: #013A63;
             border-radius: 5px;
             margin: 24px auto;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: #FFFFFF;
+            
 
          }
 
@@ -125,12 +134,15 @@ const ProductWrapper = styled.div`
             display: flex;
             margin-bottom: 10px;
             justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            color: #013A63;
         }
 
         .image-box {
             
             img {
                 margin: 0 auto;
+                width: 150px;
             }
         }
     }
