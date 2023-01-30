@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import apiAuth from "../../services/apiAuth";
 import { UserContext } from "../../contexts/UserContext";
-import { bigLogo } from "../../"
+import bigLogo from "../../assets/bigLogo.png"
 
 
 export default function SignIn() {
@@ -39,7 +39,7 @@ export default function SignIn() {
 
   return (
     <PageContainer>
-      <img src="" alt="bigbang" />
+      <img src={bigLogo} alt="bigbang" />
       <StyledForm onSubmit={handleSignIn}>
         <div className="email">E-mail</div>
         <input
@@ -60,12 +60,12 @@ export default function SignIn() {
           required
         />
         <button type="submit" disabled={isLoading}>
-          {isLoading ? <ThreeDots width={50} color="#FFFFFF" /> : "Log in"}
+          {isLoading ? <ThreeDots width={50} color="#FFFFFF" /> : "Entrar"}
         </button>
       </StyledForm>
       <StyledLink to={"/sign-up"}>
         <p>
-          Don't have an account? <span>Sign up</span>
+          Não tem uma conta? <span>Cadastre-se!</span>
         </p>
       </StyledLink>
     </PageContainer>

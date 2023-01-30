@@ -6,12 +6,14 @@ export const PageContainer = styled.div`
   flex-direction: column; 
   align-items: center;
   justify-content: center;
-  background: #94a3b8;
+  background: #013a63;
   min-height: 100vh;
   min-width:375px;
 
   img {
-    
+    width: 220px;
+    height: 220px;
+    margin-bottom: 18px;
   }
  
 `;
@@ -22,6 +24,10 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   margin: 0px 34px 13px 34px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   /*  topo | direita | inferior | esquerda*/
 
   .email {
@@ -39,8 +45,9 @@ export const StyledForm = styled.form`
     border-radius: 5px;
     margin-bottom: 20px;
     position: relative;
+    padding: 0 12px;
+    font-weight: 400;
     ::placeholder {
-      font-family: "Raleway";
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
@@ -58,26 +65,26 @@ export const StyledForm = styled.form`
     align-self: center;
     width: 326px;
     height: 46px;
-    background: black;
+    background-color: #f18262;
+    border: 2px solid #000000;
     border-radius: 4.63636px;
-    border: none;
     cursor: pointer;
     pointer-events: ${(props) => (props.disabled ? "none" : "all")};
     opacity: ${(props) => (props.disabled ? 0.7 : 1)};
-    font-family: "Raleway";
+    font-family: 'Press Start 2P', cursive;
     font-style: normal;
     font-weight: 400;
     font-size: 20.976px;
     line-height: 26px;
     text-align: center;
     color: #ffffff;
+    background-color: #f18262;
   }
 `;
 
 export const StyledLink = styled(Link)`
   p {
     font-size: 15px;
-    font-family: "Raleway";
     line-height: 18px;
     
     text-decoration: none;
@@ -88,7 +95,7 @@ export const StyledLink = styled(Link)`
     
   }
   span{
-      color: black;
+      color: #f18262;
       font-weight: 700;
     }
 `;

@@ -65,12 +65,12 @@ export default function SignUp() {
           required
         />
         <button type="submit" disabled={isLoading}>
-          {isLoading ? <ThreeDots width={50} color="#FFFFFF" /> : "Sign up"}
+          {isLoading ? <ThreeDots width={50} color="#FFFFFF" /> : "Cadastrar"}
         </button>
       </StyledForm>
       <StyledLink to={"/sign-in"}>
         <p>
-          Already have an account? <span>Log In</span>
+          Já tem uma conta? <span>Entre aqui!</span>
         </p>
       </StyledLink>
     </PageContainer>
