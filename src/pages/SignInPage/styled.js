@@ -9,6 +9,10 @@ export const PageContainer = styled.div`
   background: #94a3b8;
   min-height: 100vh;
   min-width:375px;
+
+  img {
+    
+  }
  
 `;
 

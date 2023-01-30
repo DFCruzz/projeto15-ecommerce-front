@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import apiAuth from "../../services/apiAuth";
 import { UserContext } from "../../contexts/UserContext";
+import { bigLogo } from "../../"
 
 
 export default function SignIn() {
@@ -38,6 +39,7 @@ export default function SignIn() {
 
   return (
     <PageContainer>
+      <img src="" alt="bigbang" />
       <StyledForm onSubmit={handleSignIn}>
         <div className="email">E-mail</div>
         <input
