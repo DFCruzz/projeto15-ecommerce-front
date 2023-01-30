@@ -28,7 +28,7 @@ export default function ProductsTypePage() {
         <Wrapper>
             <Header />
             <div className="products-container">
-                <h3>Você está visualizando {category}</h3>
+                <h3>Você está visualizando <span>{category}</span></h3>
                 <div>
                     {productsList.map((a, index) => (
                         <ProductBox key={index}>
@@ -48,20 +48,6 @@ export default function ProductsTypePage() {
                     ))}
                 </div>
             </div>
-            <HiddenMenu>
-                <div>
-                    <h1>Logo</h1>
-                    <h2>Seções</h2>
-                    <nav>
-
-                        <p>CPUs</p>
-                        <p>Placas de Vídeo</p>
-                        <p>Cases</p>
-                        <p>Placa Mãe</p>
-                        <p>Periféricos</p>
-                    </nav>
-                </div>
-            </HiddenMenu>
             <Footer />
         </Wrapper>
     )

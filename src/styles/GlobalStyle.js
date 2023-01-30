@@ -18,7 +18,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, input {
+time, mark, audio, video, input, a, a:hover, a:visited, a:link, a:active {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -26,6 +26,7 @@ time, mark, audio, video, input {
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration:none;
+	font-family: 'Roboto', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

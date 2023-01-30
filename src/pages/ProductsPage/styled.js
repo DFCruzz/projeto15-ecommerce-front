@@ -15,12 +15,16 @@ export const Wrapper = styled.div`
             display: flex;
             margin-bottom: 10px;
             justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            color: #013A63;
+            font-size: 12px;
         }
 
         .image-box {
             
             img {
                 margin: 0 auto;
+                width: 150px;
             }
         }
     }
@@ -32,6 +36,15 @@ export const Wrapper = styled.div`
 
         h3 {
             margin: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #013A63;
+
+            span {
+                font-family: 'Press Start 2P', cursive;
+                color: #DC2F02;
+                font-size: 16px;
+            }
         }
 
         .producs-list {
@@ -48,7 +61,7 @@ export const Wrapper = styled.div`
 export const ProductBox = styled.div`
     width: 90%;
     height: 220px;
-    background-color: #ffeefe;
+    background-color: #FFFFFF;
     border-radius: 12px;
     margin: 16px auto;
     display: flex;
@@ -73,6 +86,22 @@ export const ProductBox = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            color: #000000;
+            line-height: 18px;
+
+            p {
+               font-size: 14px;
+                
+               span {
+                font-weight: 700;
+               }
+            }
+
+            h2 {
+                font-size: 24px;
+                color: #DC2F02;
+                font-family: 'Itim', cursive;
+            }
         }
     }
 
@@ -82,45 +111,10 @@ export const ProductBox = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #000000;
+        background-color: #013A63;
         border-radius: 5px;
         color: #FFFFFF;
-    }
-`
-export const HiddenMenu = styled.div`
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    background-color: red;
-
-    div {
-        position: fixed;
-        z-index: 3;
-        width: 40%;
-        height: 100%;
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        padding: 18px 30px;
-
-        h1 {
-            margin-bottom: 48px;
-        }
-
-        h2 {
-            margin-bottom: 12px;
-        }
-
-        nav {
-            margin-left: 10px;
-            
-            p {
-                margin-bottom: 8px;
-            }
-        }
+        font-family: 'Press Start 2P', cursive;
+        font-size: 10px;
     }
 `

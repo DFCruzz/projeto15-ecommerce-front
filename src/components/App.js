@@ -18,9 +18,9 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SignIn />} />
+          <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/home" element={<ProductsPage />} />
+          <Route path="/" element={<ProductsPage />} />
           <Route path="/products/:type" element={<ProductsTypePage />} />
           <Route path="product/:productId" element={<SingleProductPage />} />
           <Route path="/cart" element={<Cart />} />

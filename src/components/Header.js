@@ -1,23 +1,73 @@
 import styled from "styled-components";
 import Carts from "./Cart";
+import { Link } from "react-router-dom";
+import smallLogo from "../assets/smallLogo.png"
+import { useState, useEffect } from "react"
+import bigLogo from "../assets/bigLogo.png";
+
 
 const Header = () => {
+    const [isHidden, setIsHidden] = useState(true)
+
+    function handleMenu() {
+        setIsHidden(!isHidden)
+        setIsHidden(!isHidden)
+    }
+
+    useEffect(() => {
+        console.log(isHidden)
+    }, [isHidden])
 
     return (
         <StyledHeader>
             <header>
                 <div className="upper-bar">
                     <div className="dropdown-menu">
-                        <ion-icon name="menu"></ion-icon>
+                        <ion-icon name="menu" onClick={() => {
+                            setIsHidden(!isHidden)
+                            setIsHidden(!isHidden)
+                        }}></ion-icon>
                     </div>
-                    <a href="/home">Logo</a>
+                    <Link>
+                        <img src={smallLogo} alt="bigbang" />
+                    </Link>
                     <nav>
-                        <div><ion-icon name="person"></ion-icon></div>
+                        <div>
+                            <Link to="/sign-in">
+                                <ion-icon name="person"></ion-icon>
+                            </Link>
+                        </div>
                         <ion-icon name="heart-outline"></ion-icon>
                         <ion-icon onClick={Carts} name="cart"></ion-icon>
                     </nav>
                 </div>
             </header>
+            <HiddenMenu custom={isHidden}
+                onClick={(e) => { e.currentTarget == e.target && handleMenu(e) }}>
+                <div>
+                    <Link to="/">
+                        <img src={bigLogo} alt="bigbang" />
+                    </Link>
+                    <h2>Seções</h2>
+                    <nav>
+                        <Link to="/products/cpu">
+                            <p>CPUs</p>
+                        </Link>
+                        <Link to="/products/gpu">
+                            <p>Placas de Vídeo</p>
+                        </Link>
+                        <Link to="/products/case">
+                            <p>Cases</p>
+                        </Link>
+                        <Link to="/products/motherboard">
+                            <p>Placa Mãe</p>
+                        </Link>
+                        <Link to="/products/peripherals">
+                            <p>Periféricos</p>
+                        </Link>
+                    </nav>
+                </div>
+            </HiddenMenu>
         </StyledHeader>
     )
 }
@@ -36,6 +86,8 @@ const StyledHeader = styled.div`
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+        background-color: #012A4A;
+        color: #ffffff;
 
         .dropdown-menu {
             width: 50%;
@@ -59,7 +111,11 @@ const StyledHeader = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 100%;
+                width: 50%;
+
+                img {
+                    width: 70px;
+                }
             }
 
             nav {
@@ -136,4 +192,57 @@ const StyledHeader = styled.div`
     }
 
 
+`
+
+const HiddenMenu = styled.div`
+    display: ${(props) => (props.custom ? "none" : "flex")};
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    div {
+        position: fixed;
+        z-index: 3;
+        width: 60%;
+        height: 100%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 120px;
+            margin-bottom: 24px;
+            margin-left: 48px;
+        }
+
+        h2 {
+            margin-bottom: 24px;
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #013A63;
+            color: #f18262;
+            font-size: 18px;
+
+        }
+
+        nav {
+            margin-left: 48px;
+            color: #000000;
+            font-size: 18px;
+            font-weight: 700;
+
+            
+            p {
+                margin-bottom: 16px;
+            }
+        }
+    }
 `
