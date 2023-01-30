@@ -235,7 +235,7 @@ const HiddenMenu = styled.div`
 
         nav {
             margin-left: 48px;
-            color: #013A63;
+            color: #000000;
             font-size: 18px;
             font-weight: 700;
 
