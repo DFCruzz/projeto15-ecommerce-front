@@ -15,10 +15,7 @@ export default function Cart(){
     const [itens,setItens]= useState("")
     
 
- const mockArray = [
-       { name: "placa de video", tag: "common", price: "399,99", imageURL: "https://picsum.photos/140", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
-        { name: "image02", tag: "common", price: "399,99", imageURL: "https://picsum.photos/140", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" }
-    ]
+
     const req = axios.get("http://localhost:5008/cart")
     req.then((res)=>
     setItens(res.data))
@@ -28,8 +25,8 @@ export default function Cart(){
    
     function somar(){
         let preco = 0;
-        for(let i=0;i<mockArray.length;i++){
-           preco += parseFloat(mockArray[i].price.replace(',', '.'))
+        for(let i=0;i<itens.length;i++){
+           preco += parseFloat(itens[i].price.replace(',', '.'))
         }
         setPrecoTotal(preco)
      }
@@ -49,7 +46,7 @@ export default function Cart(){
     return(
         <><Header />
         <Bag>
-  {mockArray.length === 0 ? <Empty>Carrinho vazio</Empty> : mockArray.map((c) => (
+  {itens.length === 0 ? <Empty>Carrinho vazio</Empty> : itens.map((c) => (
     <Map1>
       <Img1 src={c.imageURL} />
       <Arrumacao>
@@ -70,10 +67,10 @@ export default function Cart(){
       </BoxDireita>
     </Map1>
     ))}
-    {mockArray.length === 0 ? "":
+    {itens.length === 0 ? "":
      <Preco1>TOTAL: R$: {precoTotal}</Preco1>
     }</Bag>
-    {mockArray.length === 0 ? "": (
+    {itens.length === 0 ? "": (
   <Link to="/CheckOut">
     <Checkout>
       Finalizar compra
