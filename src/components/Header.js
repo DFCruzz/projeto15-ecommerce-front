@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Carts from "./Cart";
 
 const Header = () => {
 
@@ -13,7 +14,7 @@ const Header = () => {
                     <nav>
                         <div><ion-icon name="person"></ion-icon></div>
                         <ion-icon name="heart-outline"></ion-icon>
-                        <ion-icon name="cart"></ion-icon>
+                        <ion-icon onClick={Carts} name="cart"></ion-icon>
                     </nav>
                 </div>
             </header>
