@@ -1,65 +1,34 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Wrapper, ProductBox, HiddenMenu } from "./styled";
-import Slider from "react-slick";
+import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import apiProducts from "../../services/apiProducts";
-import { Link } from "react-router-dom";
 
-
-export default function ProductsPage() {
+export default function ProductsTypePage() {
+    const { type } = useParams()
     const [productsList, setProductsList] = useState([])
-    const [sliderList, setSliderList] = useState([])
+    const [category, setCategory] = useState("")
 
-    async function loadList() {
-        const res = await apiProducts.getProductsList()
+    async function loadPage() {
+        const res = await apiProducts.getProductsType(type)
         console.log(res)
         setProductsList(res.data)
+        setCategory(res.data[0].type)
     }
-
-    async function loadSlider() {
-        const res = await apiProducts.getSliderList()
-        console.log(res)
-        setSliderList(res.data)
-    }
-    
 
     useEffect(() => {
-        loadList()
-        loadSlider()
+        loadPage()
     }, [])
 
-
-    const settings = {
-
-        arrows: false,
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 8000,
-        adaptiveHeight: true,
-    }
 
     return (
         <Wrapper>
             <Header />
-            <div className="slider-container">
-                <h3>Vire um verdadeiro GAMER!</h3>
-                <Slider {...settings}>
-                    {sliderList.map((a, index) => (
-                        <div className="image-box" key={index}>
-                            <img src={a.thumbURL} alt={a.name} />
-                        </div>
-                    ))}
-                </Slider>
-            </div>
             <div className="products-container">
-                <h3>Em alta!</h3>
+                <h3>Você está visualizando {category}</h3>
                 <div>
                     {productsList.map((a, index) => (
                         <ProductBox key={index}>
@@ -84,6 +53,7 @@ export default function ProductsPage() {
                     <h1>Logo</h1>
                     <h2>Seções</h2>
                     <nav>
+
                         <p>CPUs</p>
                         <p>Placas de Vídeo</p>
                         <p>Cases</p>
